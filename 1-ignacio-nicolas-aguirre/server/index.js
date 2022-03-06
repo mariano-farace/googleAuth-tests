@@ -1,6 +1,14 @@
 //Attention here: you’ll need to handle the successful Google login on a GET route that we’ll call /handleGoogleRedirect . This is how you can point your server back to your client with the tokens on the URL query. Esta es la Authorized redirect URI!!!!
 
 
+//After allowing the app to access your calendar, you will be redirected to localhost:8080/handleGoogleRedirect with the Google access code. This is not an API access token, it’s a code that identifies you as the logged-in user with Google. You can use this code to get tokens.
+//With the googleapis package, we can get tokens with the code we got from Google with the getToken function. This provides an access_token and a refresh_token.
+//We can send these back to the client with a response:
+//  res.redirect(client:refreshToken,accessToken,expirationDate) call (line 48 server/index.js).
+// If you did this correctly, you’ll be redirected to your React client at localhost:3000
+
+
+
 // express
 const express = require("express");
 const app = express();
